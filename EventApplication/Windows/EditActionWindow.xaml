@@ -45,11 +45,13 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
 
-        <TextBox Style="{StaticResource TextBoxSmall}"
+        <TextBox Name="TitleTextBox"
+                 Style="{StaticResource TextBoxSmall}"
                  Grid.Row="1"
                  Grid.Column="1"
                  Text="{Binding EventTitle}"/>
-        <TextBox Style="{StaticResource TextBoxSmall}"
+        <TextBox Name="DescriptionTextBox"
+                 Style="{StaticResource TextBoxSmall}"
                  Grid.Row="2"
                  Grid.RowSpan="2"
                  Height="100"
@@ -58,7 +60,8 @@
                  VerticalScrollBarVisibility="Visible"
                  Grid.Column="1"
                  Text="{Binding EventDescription}"/>
-        <DatePicker Grid.Row="4"
+        <DatePicker
+            Grid.Row="4"
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -68,7 +71,8 @@
             DisplayDate="{Binding EventDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             SelectedDateFormat="Short">
         </DatePicker>
-        <TextBox Style="{StaticResource TextBoxSmall}"
+        <TextBox Name="EventTimeTextBox"
+                 Style="{StaticResource TextBoxSmall}"
                  Grid.Row="5"
                  Grid.Column="1"
                  Text="{Binding EventTime}"/>
