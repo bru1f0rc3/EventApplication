@@ -1,0 +1,73 @@
+﻿<Window x:Class="EventApplication.Windows.EditActionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EventApplication.Windows"
+        mc:Ignorable="d"
+        Title="Изменение данных о мероприятии" Height="450" Width="800"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+                Text="Название Мероприятия"
+                Style="{StaticResource TextBlockLarge}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1"
+                Text="Описание Мероприятия"
+                Style="{StaticResource TextBlockLarge}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2"
+                Text="Дата начало Мероприятия"
+                Style="{StaticResource TextBlockLarge}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3"
+                Text="Время начало Мероприятия"
+                Style="{StaticResource TextBlockLarge}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
+        <TextBox Style="{StaticResource TextBoxSmall}"
+              Grid.Column="1"
+              Text="{Binding EventTitle}"/>
+        <TextBox Style="{StaticResource TextBoxSmall}"
+              Grid.Row="1"
+              Grid.Column="1"
+              Text="{Binding EventDescription}"/>
+        <DatePicker Grid.Row="2"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="250"
+                 Text="{Binding EventDate, StringFormat={}{0:dd.MM.yyyy}}"/>
+        <TextBox Style="{StaticResource TextBoxSmall}"
+              Grid.Row="3"
+              Grid.Column="1"
+              Text="{Binding EventTime}"/>
+
+        <Button
+         Grid.Row="5"
+         Grid.ColumnSpan="2"
+         Style="{StaticResource ButtonSmall}"
+         Width="250"
+         Height="50"
+         Content="Изменить"
+         Click="ButtonBase_OnClick"/>
+    </Grid>
+</Window>
