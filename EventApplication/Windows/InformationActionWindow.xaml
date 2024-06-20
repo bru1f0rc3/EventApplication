@@ -60,6 +60,8 @@
                  Grid.Column="1"
                  Text="{Binding EventDescription}"/>
         <TextBox Grid.Row="3"
+                    Style="{StaticResource TextBoxSmall}"
+                    IsReadOnly="True"
                     Grid.Column="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
