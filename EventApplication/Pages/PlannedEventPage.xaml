@@ -21,7 +21,7 @@
                  Margin="60,5,0,0"
                  Grid.ColumnSpan="2"
                  Style="{StaticResource TextBlockLarge}"
-                 Text="Страница запланированных на сегодняшний день мероприятий"
+                 Text="Страница запланированных мероприятий на неделю"
                  FontSize="20"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
