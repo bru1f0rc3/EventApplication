@@ -17,11 +17,10 @@ namespace EventApplication.Pages
         {
             InitializeComponent();
             var today = DateTime.Now.Date;
-            var todaytime = DateTime.Now.TimeOfDay;
             var weekAgo = today.AddDays(7);
 
             ActionDataGrid.ItemsSource = Core.DB.ActionEvent
-                .Where(u => u.EventDate >= today && u.EventDate <= weekAgo && u.EventTime >= todaytime)
+                .Where(u => u.EventDate >= today && u.EventDate <= weekAgo)
                 .ToList();
         }
 
@@ -34,7 +33,21 @@ namespace EventApplication.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.Where(u => u.EventTitle.Contains(SearchTextBox.Text) || u.EventDescription.Contains(SearchTextBox.Text)).ToList();
+            var today = DateTime.Now.Date;
+            var weekAgo = today.AddDays(7);
+            if (!string.IsNullOrEmpty(SearchTextBox.Text))
+            {
+                ActionDataGrid.ItemsSource = Core.DB.ActionEvent
+                    .Where(u => (u.EventTitle.Contains(SearchTextBox.Text) || u.EventDescription.Contains(SearchTextBox.Text))
+                                && u.EventDate >= today && u.EventDate <= weekAgo)
+                    .ToList();
+            }
+            else
+            {
+                ActionDataGrid.ItemsSource = Core.DB.ActionEvent
+                    .Where(u => u.EventDate >= today && u.EventDate <= weekAgo)
+                    .ToList();
+            }
         }
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
