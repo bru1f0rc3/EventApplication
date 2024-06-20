@@ -52,7 +52,7 @@
                   SelectionChanged="ActionDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название мероприятия" Width="200" Binding="{Binding EventTitle}"/>
-                <DataGridTextColumn Header="Описание мероприятия" Width="356" Binding="{Binding EventDescription}"/>
+                <DataGridTextColumn Header="Описание мероприятия" Width="376" Binding="{Binding EventDescription}"/>
                 <DataGridTextColumn Header="Дата мероприятия" Width="200" Binding="{Binding EventDate, StringFormat={}{0:dd.MM.yyyy}}"/>
                 <DataGridTextColumn Header="Время мероприятия" Width="200" Binding="{Binding EventTime}"/>
             </DataGrid.Columns>
