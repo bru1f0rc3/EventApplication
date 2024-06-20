@@ -28,9 +28,9 @@ namespace EventApplication.Pages
                 {
                     EditActionWindow editWindow = new EditActionWindow(selected);
                     editWindow.Show();
-                    ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
                 }
             }
+            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
         }
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)

@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EventApplication.Windows"
         mc:Ignorable="d"
-        Title="Изменение данных о мероприятии" Height="450" Width="800"
+        Title="Изменение данных о мероприятии" Height="550" Width="800"
         WindowStyle="ToolWindow"
         ResizeMode="NoResize">
     <Grid Background="White">
 
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -22,35 +24,41 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock
-                Text="Название Мероприятия"
-                Style="{StaticResource TextBlockLarge}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
         <TextBlock Grid.Row="1"
-                Text="Описание Мероприятия"
-                Style="{StaticResource TextBlockLarge}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
+                   Text="Название Мероприятия"
+                   Style="{StaticResource TextBlockLarge}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2"
-                Text="Дата начало Мероприятия"
-                Style="{StaticResource TextBlockLarge}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="3"
-                Text="Время начало Мероприятия"
-                Style="{StaticResource TextBlockLarge}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
+                   Text="Описание Мероприятия"
+                   Style="{StaticResource TextBlockLarge}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4"
+                   Text="Дата начало Мероприятия"
+                   Style="{StaticResource TextBlockLarge}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="5"
+                   Text="Время начало Мероприятия"
+                   Style="{StaticResource TextBlockLarge}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
 
         <TextBox Style="{StaticResource TextBoxSmall}"
-              Grid.Column="1"
-              Text="{Binding EventTitle}"/>
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Text="{Binding EventTitle}"/>
         <TextBox Style="{StaticResource TextBoxSmall}"
-              Grid.Row="1"
-              Grid.Column="1"
-              Text="{Binding EventDescription}"/>
-        <DatePicker Grid.Row="2"
+                 Grid.Row="2"
+                 Grid.RowSpan="2"
+                 Height="100"
+                 AcceptsReturn="True"
+                 Width="350"
+                 VerticalScrollBarVisibility="Visible"
+                 Grid.Column="1"
+                 Text="{Binding EventDescription}"/>
+        <DatePicker Grid.Row="4"
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -61,12 +69,12 @@
             SelectedDateFormat="Short">
         </DatePicker>
         <TextBox Style="{StaticResource TextBoxSmall}"
-              Grid.Row="3"
-              Grid.Column="1"
-              Text="{Binding EventTime}"/>
+                 Grid.Row="5"
+                 Grid.Column="1"
+                 Text="{Binding EventTime}"/>
 
         <Button
-         Grid.Row="5"
+         Grid.Row="6"
          Grid.ColumnSpan="2"
          Style="{StaticResource ButtonSmall}"
          Width="250"
