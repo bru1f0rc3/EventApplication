@@ -11,15 +11,15 @@ namespace EventApplication.Pages
     public partial class AddActionPage : Page
     {
         private ActionEvent _action;
+
         public AddActionPage()
         {
             InitializeComponent();
             _action = new ActionEvent();
+            _action.EventDate = DateTime.Now;
             DataContext = _action;
-            if (_action.EventId == 0)
-                _action.EventDate = DateTime.Now;
-        }
 
+        }
 
         private void GoBackButton_OnClick(object sender, RoutedEventArgs e)
         {

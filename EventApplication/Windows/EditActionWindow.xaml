@@ -51,11 +51,15 @@
               Grid.Column="1"
               Text="{Binding EventDescription}"/>
         <DatePicker Grid.Row="2"
-                 Grid.Column="1"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                 Width="250"
-                 Text="{Binding EventDate, StringFormat={}{0:dd.MM.yyyy}}"/>
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="250"
+            Name="ActionDate"
+            SelectedDate="{Binding EventDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            DisplayDate="{Binding EventDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            SelectedDateFormat="Short">
+        </DatePicker>
         <TextBox Style="{StaticResource TextBoxSmall}"
               Grid.Row="3"
               Grid.Column="1"
