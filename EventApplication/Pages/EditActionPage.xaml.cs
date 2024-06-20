@@ -15,7 +15,13 @@ namespace EventApplication.Pages
         public EditActionPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
+            ActionDataGrid.Items.Refresh();
         }
 
         private void ActionDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -27,12 +33,15 @@ namespace EventApplication.Pages
                 if (result == MessageBoxResult.Yes)
                 {
                     EditActionWindow editWindow = new EditActionWindow(selected);
-                    editWindow.Show();
+                    editWindow.ShowDialog();
+
+                    if (editWindow.DialogResult == true)
+                    {
+                        LoadData();
+                    }
                 }
             }
-            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
         }
-
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
