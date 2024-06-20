@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using EventApplication.Windows;
+using System;
 
 namespace EventApplication.Pages
 {
@@ -20,7 +21,8 @@ namespace EventApplication.Pages
 
         private void LoadData()
         {
-            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
+            var today = DateTime.Now.Date;
+            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.Where(u => u.EventDate >= today).ToList();
             ActionDataGrid.Items.Refresh();
         }
 

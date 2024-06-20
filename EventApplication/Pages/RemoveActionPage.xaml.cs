@@ -1,4 +1,5 @@
 ﻿using EventApplication.Entities;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,7 +15,9 @@ namespace EventApplication.Pages
         public RemoveActionPage()
         {
             InitializeComponent();
-            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
+            var today = DateTime.Now.Date;
+            var twoDaysAgo = today.AddDays(-1);
+            ActionDataGrid.ItemsSource = Core.DB.ActionEvent.Where(u => u.EventDate <= twoDaysAgo).ToList();
         }
 
         private void ActionDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

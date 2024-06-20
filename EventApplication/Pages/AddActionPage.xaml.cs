@@ -25,7 +25,7 @@ namespace EventApplication.Pages
 
         private void GoBackButton_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new MainMenu());
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -48,6 +48,7 @@ namespace EventApplication.Pages
                         Core.DB.ActionEvent.Add(_action);
                         Core.DB.SaveChanges();
                         MessageBox.Show("Успешно добавилось");
+                        NavigationService.Navigate(new AddActionPage());
                     }
                 }
                 catch (Exception ex)
