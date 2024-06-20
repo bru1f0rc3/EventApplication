@@ -42,6 +42,7 @@ namespace EventApplication.Pages
                 }
             }
         }
+
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
