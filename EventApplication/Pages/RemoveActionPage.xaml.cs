@@ -22,6 +22,8 @@ namespace EventApplication.Pages
 
         private void ActionDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var today = DateTime.Now.Date;
+            var twoDaysAgo = today.AddDays(-1);
             ActionEvent selected = ActionDataGrid.SelectedItem as ActionEvent;
             if (selected != null)
             {
@@ -30,7 +32,7 @@ namespace EventApplication.Pages
                 {
                     Core.DB.ActionEvent.Remove(selected);
                     Core.DB.SaveChanges();
-                    ActionDataGrid.ItemsSource = Core.DB.ActionEvent.ToList();
+                    ActionDataGrid.ItemsSource = Core.DB.ActionEvent.Where(u => u.EventDate <= twoDaysAgo).ToList();
                 }
             }
         }
