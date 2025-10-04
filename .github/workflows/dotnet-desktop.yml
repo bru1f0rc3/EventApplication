@@ -1,28 +1,21 @@
 name: .NET Desktop CI
-
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.x'
-
     - name: Restore dependencies
       run: dotnet restore EventApplication.sln
-
     - name: Build
       run: dotnet build EventApplication.sln --configuration Release --no-restore
-
     - name: Test
       run: dotnet test EventApplication.sln --no-build --verbosity normal
